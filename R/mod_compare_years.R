@@ -222,7 +222,7 @@ mod_compare_years_ui <- function(id){
 #          reactable::reactableOutput(ns("topics_table"))
 #        )
 #      )
-    )
+#    )
     
     
   )
