@@ -180,7 +180,7 @@ mod_compare_years_ui <- function(id){
           echarts4r::echarts4rOutput(ns("plot_box4"), height = 430)
         )
       )
-    ),   
+    )   
     
 #    div(
 #      class = "one-card",
