@@ -221,7 +221,7 @@ mod_compare_years_ui <- function(id){
 #        content = tagList(
 #          reactable::reactableOutput(ns("topics_table"))
 #        )
-      )
+#      )
     )
     
     
