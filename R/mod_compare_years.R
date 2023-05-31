@@ -505,68 +505,68 @@ mod_compare_years <- function(id, r){
     }, ignoreNULL = FALSE)   
       
     
-    output$topics_table = reactable::renderReactable({
-      req(r_mod_pby$df, opened())
-      
-      min_year_topic_evo = as.numeric(colnames(r$topic_evo[[1]])[1])
-      selected_year = ifelse(input$selected_year <= min_year_topic_evo, min_year_topic_evo, input$selected_year)
-      
-      r_mod_pby$df %>% 
-        dplyr::select(ID = id2, Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
-        dplyr::mutate(
-          topic_evo_year = topic_evo_year %>%
-            stringr::str_extract(glue::glue("{selected_year}.*")) %>% 
-            stringr::str_remove(glue::glue("{selected_year}: ")),
-          search = createLink_evo(topic_evo_year, r$booster)
-        ) %>% 
-        reactable::reactable(
-          rownames = FALSE,
-          searchable = TRUE,
-          sortable = FALSE,
-          resizable = TRUE,
-          #selection = "single",
-          defaultSelected = 1,
-          defaultPageSize = 20,
-          #showPageSizeOptions = TRUE,
-          #pageSizeOptions = c(5, 10, 15, 20),
-          #onClick = "select",
-          # theme = reactable::reactableTheme(
-          #   rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
-          # ),
-          columns = list(
-            # id = reactable::colDef(
-            #   name = "ID"
-            # ),
-            # TopTerms = reactable::colDef(
-            #   name = "Top Terms"
-            # ),
-            topic_evo_year = reactable::colDef(
-              name = glue::glue("Evolution Terms {input$selected_year}")
-            ),
-            n_docs = reactable::colDef(
-              name = "Essential Publications"
-            ),
-            year = reactable::colDef(
-              name = "Year"
-            ),
-            search = reactable::colDef(
-              name = "Publications",
-              html = TRUE
-            ),
-            Empirical = reactable::colDef(
-              name = "Empirical %"#,
-              #format = reactable::colFormat(digits = 2)
-            )#,
-            # .selection = reactable::colDef(
-            #   show = TRUE,
-            #   headerClass = "hide-checkbox"
-            # )
-          )
-          
-        )
-    })  ## end topics_table
+#    output$topics_table = reactable::renderReactable({
+#      req(r_mod_pby$df, opened())
+#      
+#      min_year_topic_evo = as.numeric(colnames(r$topic_evo[[1]])[1])
+#      selected_year = ifelse(input$selected_year <= min_year_topic_evo, min_year_topic_evo, input$selected_year)
+#      
+#      r_mod_pby$df %>% 
+#        dplyr::select(ID = id2, Label, year, topic_evo_year, n_docs = Freq, Empirical, Journals, search) %>% 
+#        dplyr::mutate(
+#          topic_evo_year = topic_evo_year %>%
+#            stringr::str_extract(glue::glue("{selected_year}.*")) %>% 
+#            stringr::str_remove(glue::glue("{selected_year}: ")),
+#          search = createLink_evo(topic_evo_year, r$booster)
+#        ) %>% 
+#        reactable::reactable(
+#          rownames = FALSE,
+#          searchable = TRUE,
+#          sortable = FALSE,
+#          resizable = TRUE,
+#          #selection = "single",
+#          defaultSelected = 1,
+#          defaultPageSize = 20,
+#          #showPageSizeOptions = TRUE,
+#          #pageSizeOptions = c(5, 10, 15, 20),
+#          #onClick = "select",
+#          # theme = reactable::reactableTheme(
+#          #   rowSelectedStyle = list(backgroundColor = "#c6cf78ff", boxShadow = "inset 2px 0 0 0 #ffa62d")
+#          # ),
+#          columns = list(
+#            # id = reactable::colDef(
+#            #   name = "ID"
+#            # ),
+#            # TopTerms = reactable::colDef(
+#            #   name = "Top Terms"
+#            # ),
+#            topic_evo_year = reactable::colDef(
+#              name = glue::glue("Evolution Terms {input$selected_year}")
+#            ),
+#            n_docs = reactable::colDef(
+#              name = "Essential Publications"
+#            ),
+#            year = reactable::colDef(
+#              name = "Year"
+#            ),
+#            search = reactable::colDef(
+#              name = "Publications",
+#              html = TRUE
+#            ),
+#            Empirical = reactable::colDef(
+#              name = "Empirical %"#,
+#              #format = reactable::colFormat(digits = 2)
+#            )#,
+#            # .selection = reactable::colDef(
+#            #   show = TRUE,
+#            #   headerClass = "hide-checkbox"
+#            # )
+#          )
+#          
+#        )
+#    })  ## end topics_table
     
-    selected <- reactive(reactable::getReactableState("topics_table", "selected"))
+#    selected <- reactive(reactable::getReactableState("topics_table", "selected"))
     
     
     
