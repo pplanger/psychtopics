@@ -180,7 +180,7 @@ mod_compare_years_ui <- function(id){
           echarts4r::echarts4rOutput(ns("plot_box4"), height = 430)
         )
       )
-    )   
+    ),   
     
 #    div(
 #      class = "one-card",
@@ -224,6 +224,13 @@ mod_compare_years_ui <- function(id){
 #      )
 #    )
     
+spsGoTop(
+  id = "gotop",
+  icon = icon("arrow-up-long", "fa-solid"),
+  right = "2rem",
+  bottom = "5rem",
+  color = "#953386"
+)   
     
   )
 }
