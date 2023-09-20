@@ -222,7 +222,7 @@ mod_browse_topics_server <- function(id, r){
       
       r$topic %>% 
         dplyr::mutate(
-          search = createLink(TopTerms, r$booster, ID),
+          search = createLink(TopTerms, r$booster, ID[ID == 199,]),
           topic_evo = r$topic_evo_concatenated
         ) %>% 
         dplyr::arrange(-n_docs)
