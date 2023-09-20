@@ -220,7 +220,7 @@ mod_browse_topics_server <- function(id, r){
       
       # topics = sapply(r$topic_evo, make_topic_evo_string)
       
-      r$topic[! ID %in% c(199 198),] %>% 
+      r$topic[! r$topic %in% c(199 198),] %>% 
         dplyr::mutate(
           search = createLink(TopTerms, r$booster, ID),
           topic_evo = r$topic_evo_concatenated
