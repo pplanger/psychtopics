@@ -192,7 +192,7 @@ mod_topic_evol_server <- function(id, r){
       req(r$topic, r$topic_evo_firsts, r$topic_evo_lasts, opened())
       
       ## update the topicIds in javascript
-      golem::invoke_js("updateTopicIds", list = list(values = r$topic[-c(110,201,206,209,211,213,216,217,51,219,221,222,223,225,227,228,229,231,232,233,234,236,198,238,240,199),]$Label))                                          
+      golem::invoke_js("updateTopicIds", list = list(values = r$topic[-c(110,201,206,209,211,213,216,217,51,219,221,222,223,225,227,228,229,231,232,233,234,235,236,198,238,240,199),]$Label))                                          
       
       ## set the slider for the first run, this actually imitates an initial click by the user through javascript
       golem::invoke_js("setSlider", list = list(id = ns("slider"), vals = c((r$current_year - 5), r$current_year)))
