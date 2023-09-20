@@ -189,7 +189,7 @@ mod_topic_evol_server <- function(id, r){
     })
     
     output$tagPicker = renderUI({
-      req(r$topic[-c("Miscellaneous 9")], r$topic_evo_firsts, r$topic_evo_lasts, opened())
+      req(r$topic, r$topic_evo_firsts, r$topic_evo_lasts, opened())
       
       ## update the topicIds in javascript
       golem::invoke_js("updateTopicIds", list = list(values = r$topic$Label))                                          
